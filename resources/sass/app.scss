@@ -1,0 +1,36 @@
+// Fonts
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    .clear-m-p{
+        margin: 0;
+        padding: 0;
+    }
+    color:#656565;
+    .btn-duper-mart {
+        color: #656565;
+        background-color: orange;
+        border: none;
+    }
+    .bg-gray{
+        background-color: #fbfbfd;
+    }
+    header , footer, .sidebar{
+        background: #1f2638;
+        color: #e7e0e0;
+        a{
+            color: inherit;
+        }
+        a:hover{
+            color: #f7f0f0;
+        }
+        .border-radius-0{
+            border-radius: 0;
+        }
+    }
+}
