@@ -1,7 +1,7 @@
 <div {{ $attributes  }}>
     <div class="container-fluid pb-2 px-5">
         <div class="row pt-5">
-            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
+            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12 text-center">
                 <h1 class="no-margin h2">
                     <a href="{{ route('home') }}" class="text-decoration-none no-margin">{{ config('app.name') }}</a>
                 </h1>

@@ -17,5 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/npublic', function (Request $request) {
     return $request->user();
 });
-Route::get('/bookables', 'BookableController@index')->name('bookable.index');
-Route::get('/bookables/{id}', 'BookableController@show')->name('bookable.show');

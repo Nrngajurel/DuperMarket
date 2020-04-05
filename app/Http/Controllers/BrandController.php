@@ -19,10 +19,15 @@ class BrandController extends Controller
         $this->authorizeResource(Brand::class, 'brand');
     }
 
-    public function mange(Brand $brand, BrandRepository $brandRepository)
+    public function manage(Brand $brand, BrandRepository $brandRepository)
     {
+       $df=$brandRepository->search();
+       $data = $df->getData();
+       dd(request()->ajax());
+
 
     }
+
     public function index()
     {
         //

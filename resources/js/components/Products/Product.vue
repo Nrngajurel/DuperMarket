@@ -4,7 +4,7 @@
             <div class="card-body">
                 <router-link :to="{ name: 'product', params: { id } }"> <h5 class="card-title">{{ name }}</h5> </router-link>
 
-                <p class="card-text"> {{ description }}</p>
+                <p class="card-text"> {{ description }} </p>
                 <span class="round"><b>Rs.</b> <s>{{ max_price }}</s>  {{min_price}}</span>
             </div>
         </div>
@@ -21,9 +21,9 @@
             "id":Number,
             "max_price":String,
             "min_price":String,
-            "onsale":Boolean,
+            "onsale":Number,
             "slug":String,
-            "stock":Boolean,
+            "stock":Number,
             "stock_qty":String,
         },
     }

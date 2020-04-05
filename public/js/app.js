@@ -1930,9 +1930,9 @@ __webpack_require__.r(__webpack_exports__);
     "id": Number,
     "max_price": String,
     "min_price": String,
-    "onsale": Boolean,
+    "onsale": Number,
     "slug": String,
-    "stock": Boolean,
+    "stock": Number,
     "stock_qty": String
   }
 });
@@ -1968,6 +1968,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Product: _Product__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  props: {
+    take: Number
+  },
   data: function data() {
     return {
       products: null,
@@ -1977,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    var request = axios.get('/products?take=10').then(function (response) {
+    var request = axios.get("/products?take=".concat(this.take)).then(function (response) {
       _this.products = response.data;
       _this.loading = false;
     });
@@ -37376,7 +37379,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v(" " + _vm._s(_vm.description))
+              _vm._v(" " + _vm._s(_vm.description) + " ")
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "round" }, [

@@ -42,6 +42,7 @@
                     <a class="collapse-item" href="#">Add new</a>
                     <a class="collapse-item" href="#">Category</a>
                     <a class="collapse-item" href="#">Tag</a>
+                    <a class="collapse-item" href="{{ route('admin.brands.index') }}">Brands</a>
                 </div>
             </div>
         </li>

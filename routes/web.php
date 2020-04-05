@@ -21,7 +21,8 @@ return \App\User::get_user();
 
 });
 
-
+//Brand
+Route::get('/brands','BrandController@manage')->name('brands.manage');
 
 
 

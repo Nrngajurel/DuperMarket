@@ -19,7 +19,7 @@
                 </form>
                 <p class="text-justify">
                 </p>
-                <product-component :take="20"></product-component>
+                <product-component :take="10" :itemPerRow="10"></product-component>
             </div>
         </div>
     </div>

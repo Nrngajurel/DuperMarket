@@ -19,6 +19,9 @@
         components: {
             Product,
         },
+        props:{
+          take: Number,
+        },
         data(){
             return {
                 products:null,
@@ -26,7 +29,8 @@
             }
         },
         created() {
-            const request = axios.get('/products?take=10')
+
+            const request = axios.get(`/products?take=${this.take}`)
                 .then( response=> {
                     this.products =response.data;
                     this.loading =false;
