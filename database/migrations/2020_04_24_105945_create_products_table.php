@@ -15,14 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->autoIncrement();
             $table->string('name');
-            $table->string('slug');
-            $table->string('min_price')->nullable();
-            $table->string('max_price')->nullable();
-            $table->mediumText('description');
-            $table->boolean('stock')->nullable();
+            $table->text('description');
+            $table->boolean('on_sale')->default(false);
             $table->string('stock_qty')->nullable();
-            $table->boolean('onsale')->nullable();
+            $table->string('min_price');
+            $table->string('max_price');
+            $table->text('details');
+
             $table->timestamps();
         });
     }
