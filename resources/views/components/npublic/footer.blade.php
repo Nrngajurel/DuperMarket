@@ -2,16 +2,16 @@
     <div class="container pt-3">
         <div class="row">
             <div class="col-md-3">
-                <h1 class="no-margin h3">
-                    <a href="{{ route('home') }}" class="text-decoration-none no-margin">{{ config('app.name') }}</a>
+                <h1 class="no-margin h3 footer-app-name text-warning">
+                    <a href="{{ route('home') }}" class="text-decoration-none no-margin text-capitalize">{{ config('app.name') }}</a>
                 </h1>
-                <p class="text-justify">
+                <p class="">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur fuga illum perferendis quam! At culpa cupiditate dolorem explicabo quod ut.
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis eius fugit in optio quis quisquam reprehenderit vel velit vero!
                 </p>
             </div>
             <div class="col-md-3">
-                <h1 class="no-margin h3">
+                <h1 class="no-margin h3 text-warning">
                     <a href="{{ route('home') }}" class="text-decoration-none no-margin">Quick Links</a>
                 </h1>
                 <ul>
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <h1 class="no-margin h3">
+                <h1 class="no-margin h3 text-warning">
                     <a href="{{ route('home') }}" class="text-decoration-none no-margin">Follow US</a>
                 </h1>
                 <div class="social-media">
@@ -34,10 +34,10 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h1 class="no-margin h3">
+                <h1 class="no-margin h3 text-warning">
                     <a href="{{ route('home') }}" class="text-decoration-none no-margin">{{ config('app.name') }}</a>
                 </h1>
-                <p class="text-justify">
+                <p class="">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur fuga illum perferendis quam! At culpa cupiditate dolorem explicabo quod ut.
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut blanditiis eius fugit in optio quis quisquam reprehenderit vel velit vero!
                 </p>

@@ -25,9 +25,3 @@
     </div>
 
 @endsection
-<script>
-    import Product from "../../js/components/Products/Product";
-    export default {
-        components: {Product}
-    }
-</script>

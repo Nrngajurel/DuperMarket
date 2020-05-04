@@ -1,31 +1,59 @@
 <div>
+
+    @php
+    $menuItems= [
+    'dashboard'=>['name'=>'Dashboard', 'route'=>'admin.dashboard', 'icon-class'=>'fa-tachometer-alt' ],
+    'product'=>['name'=>'Product', 'route'=>'admin.products.index','icon-class'=>'fa-tachometer-alt','params'=>[] ,'child_items'=>[
+        ['name'=>'Tags', 'route'=>'admin.tags.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
+        ['name'=>'Categories', 'route'=>'admin.categories.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
+        ['name'=>'Brands', 'route'=>'admin.brands.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
+        ['name'=>'Add New', 'route'=>'admin.products.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
+        ]],
+    'brand'=>['name'=>'Brand', 'route'=>'admin.brands.index','icon-class'=>'fa-tachometer-alt' ],
+    'coupon'=>['name'=>'Coupon', 'route'=>'admin.coupons.index','icon-class'=>'fa-tachometer-alt' ],
+];
+
+    @endphp
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
             <div class="sidebar-brand-icon">
-                <img src="img/logo/logo2.png">
+                <img src="img/logo/logo2.png" alt="{{ config('app.name') }}">
             </div>
-            <div class="sidebar-brand-text mx-3">{{ config('app.name') }}</div>
+            <div class="sidebar-brand-text mx-3"></div>
         </a>
         <hr class="sidebar-divider my-0">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
+        @foreach($menuItems as $item)
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route($item['route'],isset($item['params'])) }}"
+                   @if(isset($item['child_items']))
+                   data-toggle="collapse" data-target="#collapse{{ $item['name'] }}"
+                   aria-expanded="true" aria-controls="collapse{{ $item['name'] }}"
+                    @endif
+                >
+                    <i class="fas fa-fw {{ $item['icon-class'] }}"></i>
+                    <span>{{ $item['name'] }}</span></a>
+                @if(isset($item['child_items']))
+                    <div id="collapse{{ $item['name'] }}" class="collapse" aria-labelledby="heading{{ $item['name'] }}" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Order</h6>
+                            <a class="collapse-item" href="{{ route($item['route'],isset($item['params'])) }}">{{ $item['name'] }}</a>
+                            @foreach($item['child_items'] as $item)
+                                <a class="collapse-item" href="{{ route($item['route'],isset($item['params'])) }}">{{ $item['name'] }}</a>
+                            @endforeach
+
+                        </div>
+                    </div>
+
+                @endif
+            </li>
+        @endforeach
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder"
                aria-expanded="true" aria-controls="collapseOrder">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>Order</span>
             </a>
-            <div id="collapseOrder" class="collapse" aria-labelledby="headingOrder" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Order</h6>
-                    <a class="collapse-item" href="#">Alerts</a>
-                    <a class="collapse-item" href="#">Buttons</a>
 
-                </div>
-            </div>
         </li>
 
         <hr class="sidebar-divider">
@@ -76,7 +104,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard') }}">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Settings</span></a>
         </li>

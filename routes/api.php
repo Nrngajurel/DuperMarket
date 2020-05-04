@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/npublic', function (Request $request) {
     return $request->user();
 });
+Route::get('/products', 'ProductController@index')->name('product.index');

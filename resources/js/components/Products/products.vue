@@ -30,11 +30,17 @@
         },
         created() {
 
-            const request = axios.get(`/products?take=${this.take}`)
+            const request = axios.get(`/api/products?per_page=${this.take}`)
                 .then( response=> {
-                    this.products =response.data;
+                    this.products =response.data.data;
                     this.loading =false;
+                    console.log(this.products);
+                }) .catch(function (error) {
+                    console.log(error);
+                }).finally(function () {
+                    // always executed
                 });
+
         }
     }
 </script>

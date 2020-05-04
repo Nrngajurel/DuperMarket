@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Repos\ProductRepository;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -10,11 +11,13 @@ class ShopController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param ProductRepository $repository
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(ProductRepository $repository)
     {
-        //
+        $products= $repository->search()->getData();
+        return view('npublic.shop', compact('products'));
     }
 
     /**

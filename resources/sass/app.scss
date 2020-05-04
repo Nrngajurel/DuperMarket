@@ -7,6 +7,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 body{
+    .navbar-light .navbar-nav .nav-link {
+        color: rgb(252, 255, 228);
+        :hover{
+            color: rgb(252, 255, 228);
+        }
+    }
+    nav.navbar.navbar-expand-md.navbar-light.text-white.shadow-sm {
+        padding: 0;
+    }
+    .navbar-toggler {
+        background-color: #f3d108;;
+    }
     .clear-m-p{
         margin: 0;
         padding: 0;
@@ -21,7 +33,7 @@ body{
         background-color: #fbfbfd;
     }
     header , footer, .sidebar{
-        background: #1f2638;
+        background: #021750;
         color: #e7e0e0;
         a{
             color: inherit;
@@ -32,5 +44,10 @@ body{
         .border-radius-0{
             border-radius: 0;
         }
+
+
     }
 }
+
+
+

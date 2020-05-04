@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Npublic;
 
+use App\Category;
 use Illuminate\View\Component;
 
 class Header extends Component
@@ -23,6 +24,7 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.npublic.header');
+        $categories= Category::where('parent_id',null)->with('child_categories')->get();
+        return view('components.npublic.header',compact('categories'));
     }
 }

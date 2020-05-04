@@ -10886,6 +10886,22 @@ body {
   color: #656565;
 }
 
+body .navbar-light .navbar-nav .nav-link {
+  color: #fcffe4;
+}
+
+body .navbar-light .navbar-nav .nav-link :hover {
+  color: #fcffe4;
+}
+
+body nav.navbar.navbar-expand-md.navbar-light.text-white.shadow-sm {
+  padding: 0;
+}
+
+body .navbar-toggler {
+  background-color: #f3d108;
+}
+
 body .clear-m-p {
   margin: 0;
   padding: 0;
@@ -10904,7 +10920,7 @@ body .bg-gray {
 body header,
 body footer,
 body .sidebar {
-  background: #1f2638;
+  background: #021750;
   color: #e7e0e0;
 }
 

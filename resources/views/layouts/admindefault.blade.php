@@ -14,7 +14,8 @@
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/ruang-admin.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css')}}" rel="stylesheet">
+{{--    <link href="{{ asset('css/admin.min.css')}}" rel="stylesheet">--}}
     @yield('header_scripts')
 </head>
 
@@ -48,7 +49,8 @@
 <script src="{{ asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-<script src="{{ asset('js/ruang-admin.min.js')}}"></script>
+<script src="{{ asset('js/admin.js')}}"></script>
+<script src="{{ asset('js/popper.min.js')}}"></script>
 
 @yield('footer_scripts')
 

@@ -15,6 +15,15 @@ class CreateMenuItemsTable extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('url')->nullable();
+            $table->string('target')->default('_self');
+            $table->string('icon_class')->nullable();
+            $table->string('order')->nullable();
+            $table->string('route')->nullable();
+            $table->string('param')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('menu_items')->onDelete('set null');
             $table->timestamps();
         });
     }

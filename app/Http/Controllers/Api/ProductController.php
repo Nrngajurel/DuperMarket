@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Product;
+use App\Http\Resources\Product as ProductResource;
 use App\Repos\ProductRepository;
 use Illuminate\Http\Request;
 
@@ -11,13 +13,16 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Product $product
+     * @param ProductRepository $repository
      * @return \Illuminate\Http\Response
      */
-    public function index(Product $product, ProductRepository $repository)
+    public function index(ProductRepository $repository)
     {
         $datafilter= $repository->search();
         $data= $datafilter->getData();
-        return $data;
+//        return $data;
+        return ProductResource::collection($data);
 
     }
 

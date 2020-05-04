@@ -15,6 +15,12 @@ class CreateProductReviewsTable extends Migration
     {
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('user_id');
+            $table->ipAddress('user_ip_address');
+            $table->string('title');
+            $table->text('comment');
+            $table->string('rating');
             $table->timestamps();
         });
     }

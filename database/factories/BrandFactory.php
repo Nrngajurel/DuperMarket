@@ -7,8 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Brand::class, function (Faker $faker) {
     return [
-        'name'=> $faker->userName,
-        'slug'=> $faker->unique()->word,
-        'description'=> $faker->text,
+        'name'=>'brand'. $faker->unique()->randomNumber(5),
+        'display_name'=>'brand AB-'. random_int(500,999),
+        'description'=>$faker->text(),
+
     ];
 });

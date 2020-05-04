@@ -7,8 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Tag::class, function (Faker $faker) {
     return [
-        'name'=> $faker->word,
-        'slug'=> $faker->word,
-        'description'=> $faker->text,
+        'key'=> strtolower($faker->word),
+        'display_name'=> $faker->unique()->sentence(random_int(1,3)),
     ];
 });

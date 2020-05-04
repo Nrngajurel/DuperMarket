@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\Shop\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +17,18 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/account', 'AccountController@index')->name('account');
 
-Route::get('/test', function (){
-return \App\User::get_user();
-
-});
+Route::post('/test', 'CartController@store');
 
 //Brand
 Route::get('/brands','BrandController@manage')->name('brands.manage');
 
 
 
-//product
-Route::get('/products', 'ProductController@index')->name('product.index');
+//Shop
+Route::get('/shop', 'ShopController@index')->name('shop.index');
+
+
+//Cart Route List
+Route::post('/cart','CartController@store')->name('cart.store');
+Route::patch('/cart','CartController@update')->name('cart.update');
+Route::delete('/cart','CartController@destroy')->name('cart.destroy');

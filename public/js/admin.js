@@ -177,7 +177,7 @@ $('.popover-dismiss').popover({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\USER\Desktop\nrngajurel\project101\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! C:\Users\USER\Desktop\nrngajurel\dupermarket\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })

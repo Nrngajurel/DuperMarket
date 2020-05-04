@@ -4,41 +4,75 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">@yield('title')</h6>
+                    <div class="form-group">
+
+                        <h6 class="m-0 font-weight-bold text-primary">@yield('title')</h6>
+
+                    </div>
+
+                    <div class="d-flex form-group">
+                        <div class="mx-2">
+
+                            <select name="sort" id="sort" class="form-control bg-primary text-white">
+                                <option value="newest">Newest</option>
+                                <option value="newest">Oldest</option>
+                                <option value="newest">Newest</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                        <div>
+                            <form action="" method="get">
+                                <input type="search" name="query" id="" class="form-control" placeholder="Search...">
+                            </form>
+
+                        </div>
+
+                    </div>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                         <thead class="thead-light">
                         <tr>
+                            <th><input type="checkbox" name="select_all" id="select_all"></th>
+                            <th>#</th>
                             <th>Name</th>
-                            <th> No Of Products</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Actions</th>
+                            <th>No of Products</th>
+                            <th>No of item</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>No of Products</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Action</th>
-                        </tr>
+                            <tr>
+                                <th><input type="checkbox" name="select_all" id="select_all"></th>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>No of Products</th>
+                                <th>No of item</th>
+                                <th>Action</th>
+                            </tr>
                         </tfoot>
                         <tbody>
-                        @foreach($dataList as $dataItem)
-                        <tr>
-                            <td>{{ $dataItem->name }}</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                                <td><button class="btn btn-primary">edit</button>
-                              <button class="btn btn-danger">Delete</button></td>
-                        </tr>
+                        @php
+                            $sn= $dataList->currentPage()*$dataList->perPage()-$dataList->perPage();
+                        @endphp
+                        @foreach($dataList as $key =>$dataItem)
+                            @php
+                              $sn=$sn+1;
+                            @endphp
+                            <tr>
+                                <th><input type="checkbox" name="select_all" id="{{ $dataItem->id }}"></th>
+                                <td>{{ $sn }}</td>
+                                <td>{{ $dataItem->name }}</td>
+                                <td>{{ random_int(50,100) }}</td>
+                                <td>{{ $dataItem->created_at }}</td>
+                                 <td class="d-flex"><button class="btn btn-primary mr-1">edit</button>
+                                     <form action="{{ route('admin.brands.destroy',$dataItem->id) }}" method="post" class="p-0 m-0">
+                                         {{ csrf_field() }}
+                                         {{ method_field('DELETE') }}
+                                         <button type="submit" class="btn btn-danger">Delete</button>
+                                     </form>
+                                 </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

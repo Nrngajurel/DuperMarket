@@ -21,8 +21,8 @@ class BrandController extends Controller
 
     public function manage(Brand $brand, BrandRepository $brandRepository)
     {
-       $df=$brandRepository->search();
-       $data = $df->getData();
+       $dataFilter=$brandRepository->search();
+       $data = $dataFilter->getData();
        dd(request()->ajax());
 
 

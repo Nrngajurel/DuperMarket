@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserTableSeeder extends Seeder
@@ -19,7 +20,7 @@ class UserTableSeeder extends Seeder
             'api_token'=>Str::random(80),
             'username'=>'nrngajurel',
             'email_verified_at' => now()->subHours(random_int(0,500)),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => Hash::make('nrngajurel'), // password
             'remember_token' => Str::random(10),
         ]);
         \App\User::first()->roles()->create(['name'=>'admin', 'display_name'=>'Admin']);

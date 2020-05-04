@@ -2,7 +2,7 @@
 @section('title', 'Login')
 @section('header-scripts')
 
-    <link href="{{ asset('css/ruang-admin.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css')}}" rel="stylesheet">
 
 @endsection
 @section('main')
@@ -95,6 +95,6 @@
 @section('footer-scripts')
 
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-    <script src="{{ asset('js/ruang-admin.min.js')}}"></script>
+    <script src="{{ asset('js/admin.js')}}"></script>
 
 @endsection

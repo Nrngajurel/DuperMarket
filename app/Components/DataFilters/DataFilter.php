@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Builder;
 abstract  class DataFilter
 {
     protected $builder;
-    protected $nutral_params= [];
+    protected $nutral_params= [
+        'page'=>'page'
+    ];
     protected $per_page;
-    protected $default_per_page = 30;
+    protected $default_per_page = 20;
     protected $max_per_page = 50;
-    protected $sortingMethods=[];
+    protected $sortingMethods=[
+        'newest'=>'sort_by_newest',
+        'inrandomorder'=>'in_random_order',
+    ];
 
     public function setBuilder(Builder $builder)
     {
@@ -23,7 +28,7 @@ abstract  class DataFilter
             if (!empty($value)){
                 if(method_exists($this, $key)){
                     call_user_func_array([$this,$key],[$key,$value]);
-                }elseif ($this->nutral_params[$key]){
+                }elseif (!$this->nutral_params[$key]){
                     call_user_func_array([$this, "defaultMethod"],[$key,$value]);
                 }
 
@@ -31,25 +36,6 @@ abstract  class DataFilter
         }
     }
 
-    public function getData(){
-
-    $this->per_page('per_page',$this->default_per_page);
-    $paginator= $this->builder->paginate($this->per_page);
-    $paginator->appends(app('request')->query());
-    return $paginator;
-    }
-    public function per_page($key, $value)
-    {
-        if(empty($this->per_page)){
-            $this->$key= $value<= $this->max_per_page?$value:$this->max_per_page;
-        }
-
-    }
-
-    public function sort($key,$value)
-    {
-
-    }
     public function setCriteria(array $criteria=[])
     {
         foreach ($criteria as $methodName => $value){
@@ -59,6 +45,40 @@ abstract  class DataFilter
         }
 
     }
+    public function getData(){
+
+        $this->per_page('per_page',$this->default_per_page);
+        $paginator= $this->builder->paginate($this->per_page);
+        $paginator->appends(app('request')->query());
+        return $paginator;
+    }
+    public function per_page($key, $value)
+    {
+        if(empty($this->per_page)){
+            $this->$key= $value<= $this->max_per_page?$value:$this->max_per_page;
+        }
+
+    }
+    //sorting
+    public function sort($key,$value)
+    {
+        if(isset($this->sortingMethods[$value])){
+            $method = $this->sortingMethods[$value];
+            call_user_func_array([$this,$method],[]);
+        }
+
+    }
+    //Sorting Functions
+    public function sort_by_newest()
+    {
+        $this->builder->latest();
+    }
+
+    public function in_random_order()
+    {
+        $this->builder->inRandomOrder();
+    }
+
     public abstract function defaultMethod($key,$value);
 
 }

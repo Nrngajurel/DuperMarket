@@ -7,23 +7,31 @@
                 </h1>
             </div>
             <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">
-                <form class="d-flex">
+                <form class="d-flex" action="{{ route('shop.index') }}" method="get">
                     <div>
 
-                    <select class="custom-select border-0 border-radius-0 bg-gray" name="categories" id="categories">
+                    <select class="custom-select border-0 border-radius-0 bg-gray" name="category" id="categories">
                         <option value="">Select Categories</option>
-                        <option value="">laptop</option>
-                        <option value="">Desktop</option>
-                        <option value="">Mobile</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->name }}">{{ $category->name }} <span class="badge badge-info float-right">{{ $category->products()->count() }}</span></option>
+                        @if($category->child_categories)
+
+                                @foreach($category->child_categories as $child_categories)
+                                    <option value="{{ $child_categories->name }}">{{ $child_categories->name }}</option>
+                                @endforeach
+                            @endif
+
+
+                        @endforeach
                     </select>
                     </div>
 
-                    <input  type="text" placeholder="Search Here..." class="form-control border-radius-0 w-75">
+                    <input  type="text" placeholder="Search Here..." name="query" class="form-control border-radius-0 w-75">
                     <input type="submit" value="Search" class="btn bg-warning border-radius-0">
                 </form>
             </div>
-            <div class="col">
-                <ul class="list-inline d-flex justify-content-end">
+            <div class="col-md-3 col-sm-12">
+                <ul class="list-inline d-flex justify-content-md-end">
                     <!-- Authentication Links -->
                     @guest
                         <li>
@@ -71,7 +79,7 @@
         </div>
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12 d-flex">
+            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12">
                 <form action="">
                     <select name="categories" id="" class="btn btn-outline-dark text-white text-uppercase">
                         <option value="">Categories</option>
@@ -80,17 +88,25 @@
                         <option value="">Mobile</option>
                     </select>
                 </form>
-
-                <ul class="nav navbar clear-m-p">
-                    <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                    <li><a href="" class="nav-link">Track Order</a></li>
-                    <li><a href="" class="nav-link">About Us</a></li>
-                    <li><a href="" class="nav-link">Contact Us</a></li>
-                </ul>
             </div>
-            <div class="col">
+            <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
+                <nav class="navbar navbar-expand-md navbar-light text-white shadow-sm">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                            <li><a href="" class="nav-link">Track Order</a></li>
+                            <li><a href="" class="nav-link">Checkout</a></li>
+                            <li><a href="" class="nav-link">About Us</a></li>
+                            <li><a href="" class="nav-link">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </nav>
 
             </div>
+            <div class="col-md-34"></div>
         </div>
 
     </div>

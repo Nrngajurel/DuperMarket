@@ -7,14 +7,14 @@ use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'name'=> $faker->name.' - '.random_int(1001,1111),
-        'slug'=> $faker->unique()->userName,
-        'min_price'=> $faker->randomNumber(3),
-        'max_price'=> $faker->randomNumber(3),
-        'description'=> $faker->text,
-        'stock'=>$faker->boolean,
-        'stock_qty' =>$faker->randomNumber(2),
-        'onsale'=>$faker->boolean,
-
+        'uuid'=>$faker->uuid,
+        'name'=>'Product XA-'.$faker->randomNumber(5),
+        'description'=>$faker->unique()->text,
+        'on_sale'=>$faker->boolean,
+        'stock_qty'=>$faker->randomNumber(3),
+        'min_price'=>random_int(400,500),
+        'max_price'=>random_int(600,900),
+        'details'=> $faker->text,
+        'created_at'=>now()->subHours(random_int(1,100)),
     ];
 });

@@ -2,12 +2,9 @@
 
 namespace App;
 
-use App\DataFilters\Take;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Pipeline\Pipeline;
-use phpDocumentor\Reflection\Types\Self_;
 
 class User extends Authenticatable
 {
@@ -40,27 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
-
-    public function is_admin()
+    public function image()
     {
-        return $this->roles()->where('role','admin')->exists() ;
+        return $this->morphOne(Image::class, 'imageable');
     }
 
-    public static function get_user()
-    {
-        $user= app(Pipeline::class)
-            ->send(User::query())
-            ->through([
-                Take::class,
-            ])
-            ->thenReturn()
-            ->get();
-        return $user;
 
+
+    public function is_admin(){
+        return $this->roles()->pluck('role')->contains('admin');
     }
 }

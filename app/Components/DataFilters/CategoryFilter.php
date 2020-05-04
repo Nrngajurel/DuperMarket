@@ -4,7 +4,11 @@
 namespace App\Components\DataFilters;
 
 
-class CategoryFilter
+class CategoryFilter extends DataFilter
 {
 
+    public function defaultMethod($key, $value)
+    {
+        // TODO: Implement defaultMethod() method.
+    }
 }
