@@ -15,16 +15,26 @@ class ProductFilter extends DataFilter
 
     }
 
-    public function category($key, $value)
+    public function categories($key, $value)
     {
         $this->builder->with('categories')->whereHas('categories', function ($query) use ($value){
-            $query->where('key',$value);
+            if(is_array($value)){
+                    $query->whereIn('key',$value);
+
+            }else{
+                $query->where('key',$value);
+            }
         });
     }
     public function tag($key, $value)
     {
         $this->builder->with('tags')->whereHas('tags', function ($query) use ($value){
-            $query->where('key',$value);
+            if(is_array($value)){
+                $query->whereIn('key',$value);
+
+            }else{
+                $query->where('key',$value);
+            }
         });
     }
 

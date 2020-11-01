@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Filter extends Model
 {
-    protected $fillable =['name', 'slug','display_name','type'];
+    protected $fillable =['name', 'slug','type'];
+
+    public function options()
+    {
+        $this->hasMany(Option::class);
+    }
 
 
 }

@@ -11,7 +11,7 @@
          aria-labelledby="AddNewBrandTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form action="{{ route('admin.brands.store') }}" method="POST">
+                <form action="{{ route('admin.brand.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="AddNewBrandTitle">Create new Brand</h5>

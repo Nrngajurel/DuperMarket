@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Filter;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\FilterRequest;
 use App\Repos\FilterRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class FilterController extends Controller
 {
@@ -35,18 +38,25 @@ class FilterController extends Controller
      */
     public function create()
     {
-        app();
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param FilterRequest $request
+     * @param FilterRepository $repository
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(FilterRequest $request, FilterRepository $repository)
     {
-        //
+        $repository->insert((array)$request->all());
+        if ($request->isJson() || $request->expectsJson()){
+            return response()->json([
+                'result'=>true,'msg'=>'data inserted successfully'
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -74,11 +84,12 @@ class FilterController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Filter  $filter
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Filter $filter
+     * @param FilterRepository $repository
+     * @return void
      */
-    public function update(Request $request, Filter $filter)
+    public function update(Request $request, Filter $filter, FilterRepository $repository)
     {
         //
     }
@@ -91,6 +102,9 @@ class FilterController extends Controller
      */
     public function destroy(Filter $filter)
     {
-        //
+        if (Arr::isAssoc($filter)){
+
+        }
+        $filter->delete();
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Menu;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $data= Menu::paginate(5);
+        return view('admin.menu.index',compact('data'));
     }
 
     /**

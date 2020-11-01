@@ -1,29 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Product;
-use App\Http\Resources\Product as ProductResource;
-use App\Repos\ProductRepository;
+use App\Repos\TagRepository;
+use App\Tag;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param Product $product
-     * @param ProductRepository $repository
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @param Request $request
+     * @param TagRepository $repository
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
-    public function index(ProductRepository $repository)
+    public function index(Request $request,TagRepository $repository)
     {
-        $datafilter= $repository->search();
-        $data= $datafilter->getData();
-//        return $data;
-        return ProductResource::collection($data);
-
+        $data = $repository->search()->getData();
+        if ($request->ajax() || $request->expectsJson()){
+            $data = view('admin.tag.tag_list')->with($data)->render();
+            return response()->json($data);
+        }
+        return view('admin.tag.index',compact('data'));
     }
 
     /**
@@ -50,21 +51,21 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tag $tag)
     {
-        return Product::find($id);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -73,10 +74,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -84,10 +85,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Tag $tag)
     {
         //
     }

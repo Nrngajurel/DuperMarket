@@ -10942,3 +10942,135 @@ body .sidebar .border-radius-0 {
   border-radius: 0;
 }
 
+.product-thumbnail {
+  border: 1px solid #e6e6f2;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.product-img-head {
+  position: relative;
+}
+
+.product-img {
+  text-align: center;
+  padding: 35px 0px;
+}
+
+.product-img {
+  text-align: center;
+  padding: 35px 0px;
+}
+
+.ribbons {
+  -webkit-clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 100%, 50% 73%, 10% 100%, 10% 50%);
+  clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 100%, 50% 73%, 10% 100%, 10% 50%);
+  position: absolute;
+  top: 0px;
+  background-color: #59b3ff;
+  padding: 31px 15px;
+  text-align: center;
+  left: 10px;
+  font-family: "Circular Std Medium", sans-serif;
+  color: #fff;
+}
+
+.ribbons-text {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  color: #fff;
+}
+
+.product-wishlist-btn {
+  height: 40px;
+  width: 40px;
+  border: 2px solid #dfdfec;
+  border-radius: 100px;
+  font-size: 18px;
+  line-height: 2.3;
+  color: #dfdfec;
+  text-align: center;
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.product-content {
+  border-top: 1px solid #e6e6f2;
+  padding: 23px;
+}
+
+.product-content-head {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.product-title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.product-rating {
+  font-size: 12px;
+  color: #ffa811;
+}
+
+.product-price {
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  color: #3d405c;
+  font-family: "Circular Std Medium", sans-serif;
+  line-height: 1;
+  position: initial;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5969ff;
+  border-color: #5969ff;
+}
+
+.btn-outline-light {
+  color: #7171a6;
+  background-color: transparent;
+  border-color: #e6e6f2;
+}
+
+.btn-outline-light {
+  color: #7171a6;
+  background-color: transparent;
+  border-color: #e6e6f2;
+}
+
+.product-del {
+  font-size: 14px;
+  color: #71748d;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: 0px;
+  margin-right: 5px;
+  color: #71748d;
+  background-color: #fff;
+  border: 1px solid #e6e6f2;
+  border-radius: 3px;
+}
+
+.product-sidebar {
+  background-color: #fff;
+  border: 1px solid #e6e6f2;
+}
+
+.product-sidebar-widget {
+  border-bottom: 1px solid #e6e6f2;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+

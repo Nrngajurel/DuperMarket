@@ -7,7 +7,7 @@ Route::middleware('auth')->name('admin.')->group(function (){
 
     Route::get('/', 'DashboardController@index')->name('dashboard');
 //    Brand Routes
-    Route::resource('brands','BrandController');
+    Route::resource('brand','BrandController');
 //    Product Routes
     Route::resource('products','ProductController');
 //    Coupon Routes
@@ -18,6 +18,9 @@ Route::middleware('auth')->name('admin.')->group(function (){
     Route::resource('categories','CategoryController');
 //    Filters Routes
     Route::resource('filters','FilterController');
+
+//    Menu Builders Routes
+    Route::resource('menus','MenuController');
 
 
 

@@ -15,7 +15,7 @@ class AddBrandIdToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->foreignId('brand_id')->after('details')->nullable();
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('set null');
+            $table->foreign('brand_id')->references('id')->on('brand')->onDelete('set null');
             $table->softDeletes();
         });
     }

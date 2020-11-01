@@ -20,7 +20,7 @@ Route::get('/account', 'AccountController@index')->name('account');
 Route::post('/test', 'CartController@store');
 
 //Brand
-Route::get('/brands','BrandController@manage')->name('brands.manage');
+Route::get('/brand','BrandController@manage')->name('brand.manage');
 
 
 
@@ -32,3 +32,10 @@ Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::post('/cart','CartController@store')->name('cart.store');
 Route::patch('/cart','CartController@update')->name('cart.update');
 Route::delete('/cart','CartController@destroy')->name('cart.destroy');
+
+Route::get('/test', function (){
+    return view('testform');
+});
+Route::get('/test/data', function (){
+   return request();
+})->name('test');

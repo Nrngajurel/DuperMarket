@@ -1,15 +1,16 @@
 import VueRouter from "vue-router";
-import Products from './components/Products/products';
+import SingleProduct from './components/Product/SingleProduct';
+import HomeComponent from "./components/HomeComponent";
 
 const routes = [
     {
         path: '/',
-        component: Products,
-        name: "products",
+        component: HomeComponent,
+        name: "Home",
     },
     {
         path: '/Product/:id',
-        component: Products,
+        component: SingleProduct,
         name: "product",
     },
 ];

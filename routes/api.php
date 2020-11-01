@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/npublic', function (Request $request) {
     return $request->user();
 });
 Route::get('/products', 'ProductController@index')->name('product.index');
+Route::get('/categories', 'CategoryController@index')->name('category.index');
+Route::get('/product/{id}', 'ProductController@show')->name('product.show');

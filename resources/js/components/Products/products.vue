@@ -1,13 +1,14 @@
 <template>
-    <div class="row" v-if="loading">
-        loading...
-    </div>
-    <div class="row" v-else>
-        <Product v-for="product in products"
-                 v-bind="product" :key="product.id"
-        ></Product>
+    <div>
+        <div class="row" v-if="loading">
+            loading...
+        </div>
+        <div class="row" v-else>
+            <Product v-for="product in products"
+                     v-bind="product" :key="product.id"
+            ></Product>
 
-
+        </div>
     </div>
 </template>
 

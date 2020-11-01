@@ -6,10 +6,10 @@
     'product'=>['name'=>'Product', 'route'=>'admin.products.index','icon-class'=>'fa-tachometer-alt','params'=>[] ,'child_items'=>[
         ['name'=>'Tags', 'route'=>'admin.tags.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
         ['name'=>'Categories', 'route'=>'admin.categories.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
-        ['name'=>'Brands', 'route'=>'admin.brands.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
+        ['name'=>'Brands', 'route'=>'admin.brand.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
         ['name'=>'Add New', 'route'=>'admin.products.index','icon-class'=>'fa-tachometer-alt','params'=>[]],
         ]],
-    'brand'=>['name'=>'Brand', 'route'=>'admin.brands.index','icon-class'=>'fa-tachometer-alt' ],
+    'brand'=>['name'=>'Brand', 'route'=>'admin.brand.index','icon-class'=>'fa-tachometer-alt' ],
     'coupon'=>['name'=>'Coupon', 'route'=>'admin.coupons.index','icon-class'=>'fa-tachometer-alt' ],
 ];
 
@@ -47,33 +47,6 @@
                 @endif
             </li>
         @endforeach
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder"
-               aria-expanded="true" aria-controls="collapseOrder">
-                <i class="far fa-fw fa-window-maximize"></i>
-                <span>Order</span>
-            </a>
-
-        </li>
-
-        <hr class="sidebar-divider">
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
-               aria-expanded="true" aria-controls="collapseProduct">
-                <i class="fas fa-fw fa-columns"></i>
-                <span>Product</span>
-            </a>
-            <div id="collapseProduct" class="collapse" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Products</h6>
-                    <a class="collapse-item" href="#">Add new</a>
-                    <a class="collapse-item" href="#">Category</a>
-                    <a class="collapse-item" href="#">Tag</a>
-                    <a class="collapse-item" href="{{ route('admin.brands.index') }}">Brands</a>
-                </div>
-            </div>
-        </li>
         <hr class="sidebar-divider">
 
         <li class="nav-item">
@@ -91,15 +64,14 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="false"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="false"
                aria-controls="collapsePage">
                 <i class="fas fa-fw fa-columns"></i>
                 <span>Tools</span>
             </a>
             <div id="collapseTools" class="collapse" aria-labelledby="headingTools" data-parent="#accordionSidebar">                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="#">Menu Builder</a>
+                    <a class="collapse-item" href="{{ route('admin.menus.index') }}">Menu Builder</a>
                     <a class="collapse-item" href="#">Database</a>
-                    <a class="collapse-item" href="#">Tag</a>
                 </div>
             </div>
         </li>

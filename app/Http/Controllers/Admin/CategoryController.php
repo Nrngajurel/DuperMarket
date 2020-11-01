@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Http\Controllers\Controller;
 use App\Repos\CategoryRepository;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class CategoryController extends Controller
     {
         $data = $repository->search()->getData();
         if ($request->ajax() || $request->expectsJson()){
+            $data = view('admin.category.filter_list')->with($data)->render();
             return response()->json($data);
         }
         return view('admin.category.index',compact('data'));

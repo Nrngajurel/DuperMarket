@@ -3,6 +3,7 @@
 
 namespace App\Components\DataFilters;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 
 abstract  class DataFilter
 {
@@ -28,7 +29,7 @@ abstract  class DataFilter
             if (!empty($value)){
                 if(method_exists($this, $key)){
                     call_user_func_array([$this,$key],[$key,$value]);
-                }elseif (!$this->nutral_params[$key]){
+                }elseif (!Arr::exists( $this->nutral_params,$key)){
                     call_user_func_array([$this, "defaultMethod"],[$key,$value]);
                 }
 

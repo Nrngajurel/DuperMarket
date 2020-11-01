@@ -32,6 +32,11 @@ class Product extends Model
         return $this->morphToMany(Category::class,'categoriable');
     }
 
+    public function scopeMostPopular()
+    {
+        $this->inRandomOrder();
+    }
+
 
     protected static function boot()
     {

@@ -9,25 +9,23 @@
                         <h6 class="m-0 font-weight-bold text-primary">@yield('title')</h6>
 
                     </div>
+                    <form action="" method="get">
+                        <div class="d-flex form-group">
+                            <div class="mx-2">
 
-                    <div class="d-flex form-group">
-                        <div class="mx-2">
+                                <select name="sort" id="sort" class="form-control bg-primary text-white">
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                </select>
+                            </div>
+                            <div>
 
-                            <select name="sort" id="sort" class="form-control bg-primary text-white">
-                                <option value="newest">Newest</option>
-                                <option value="newest">Oldest</option>
-                                <option value="newest">Newest</option>
-                                <option value="newest">Newest</option>
-                            </select>
+                                    <input type="search" name="query" id="" class="form-control" placeholder="Search..." value="{{ request()->has('query')? request('query'):'' }}">
+
+                            </div>
+
                         </div>
-                        <div>
-                            <form action="" method="get">
-                                <input type="search" name="query" id="" class="form-control" placeholder="Search...">
-                            </form>
-
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -66,7 +64,7 @@
                                 <td>{{ random_int(50,100) }}</td>
                                 <td>{{ $dataItem->created_at }}</td>
                                  <td class="d-flex"><button class="btn btn-primary mr-1">edit</button>
-                                     <form action="{{ route('admin.brands.destroy',$dataItem->id) }}" method="post" class="p-0 m-0">
+                                     <form action="{{ route('admin.brand.destroy',$dataItem->id) }}" method="post" class="p-0 m-0">
                                          {{ csrf_field() }}
                                          {{ method_field('DELETE') }}
                                          <button type="submit" class="btn btn-danger">Delete</button>

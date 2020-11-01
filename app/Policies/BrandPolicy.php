@@ -11,7 +11,7 @@ class BrandPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any brands.
+     * Determine whether the user can view any brand.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -34,7 +34,7 @@ class BrandPolicy
     }
 
     /**
-     * Determine whether the user can create brands.
+     * Determine whether the user can create brand.
      *
      * @param  \App\User  $user
      * @return mixed

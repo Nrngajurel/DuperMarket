@@ -21,7 +21,7 @@ class ProductController extends Controller
         if ($request->ajax() || $request->expectsJson()){
             return response()->json($data);
         }
-        return view('admin.products.index',compact('data'));
+        return view('admin.product.index',compact('data'));
     }
 
     /**

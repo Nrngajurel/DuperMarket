@@ -11,6 +11,13 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Menu::create([
+            'name'=>'admin',
+            'display_name'=>'Admin',
+        ]);
+        \App\Menu::create([
+            'name'=>'main',
+            'display_name'=>'Main Menu',
+        ]);
     }
 }

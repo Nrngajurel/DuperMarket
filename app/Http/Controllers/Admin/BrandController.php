@@ -21,7 +21,7 @@ class BrandController extends Controller
         if ($request->ajax() || $request->expectsJson()){
             return response()->json($data);
         }
-        return view('admin.brands.index',compact('data'));
+        return view('admin.brand.index',compact('data'));
     }
 
     public function store(BrandRequest $request,BrandRepository $repository)

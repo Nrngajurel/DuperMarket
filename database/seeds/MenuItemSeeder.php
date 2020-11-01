@@ -11,6 +11,10 @@ class MenuItemSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\MenuItem::create([
+
+        ])->each(function ($menuitem){
+
+        });
     }
 }

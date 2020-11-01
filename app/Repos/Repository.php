@@ -33,6 +33,17 @@ class Repository
         return $this->relations=$relations;
 
     }
+
+
+    public function update(array $data)
+    {
+
+    }
+
+
+
+
+
     public function search(array $criteria=[])
     {
         $this->filter->setBuilder($this->model->with($this->relations));
